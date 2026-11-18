@@ -1,0 +1,162 @@
+/**
+ * Estilos del Visualizador Belbin
+ * Sistema de diseño minimalista con fondo claro, alto contraste y fluidez interactiva.
+ */
+
+:root {
+  --bv-bg-app: #F8FAFC;
+  --bv-bg-card: #FFFFFF;
+  --bv-border-subtle: #E2E8F0;
+  --bv-border-strong: #CBD5E1;
+  --bv-text-title: #0F172A;
+  --bv-text-body: #334155;
+  --bv-text-muted: #64748B;
+  --bv-text-dim: #94A3B8;
+  --bv-primary: #2563EB;
+  --bv-primary-hover: #1D4ED8;
+  --bv-warning: #F59E0B;
+  --bv-success: #10B981;
+}
+
+/* ==========================================================================
+   Contenedor y Layout Base
+   ========================================================================== */
+
+.belbin-visualizer-container {
+  min-height: 100vh;
+  background-color: var(--bv-bg-app);
+  color: var(--bv-text-body);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.belbin-visualizer-container *,
+.belbin-visualizer-container *::before,
+.belbin-visualizer-container *::after {
+  box-sizing: inherit;
+}
+
+/* ==========================================================================
+   Estilos de Rango de Reproducción (<input type="range">)
+   ========================================================================== */
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--bv-border-subtle);
+  outline: none;
+  cursor: pointer;
+  margin: 8px 0;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 6px;
+  border-radius: 9999px;
+}
+
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--bv-border-subtle);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--bv-primary);
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.25);
+  cursor: pointer;
+  margin-top: -5px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--bv-primary);
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.25);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+input[type="range"]:hover::-webkit-slider-thumb {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.25);
+}
+
+input[type="range"]:hover::-moz-range-thumb {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.25);
+}
+
+input[type="range"]:focus-visible {
+  outline: 2px solid rgba(37, 99, 235, 0.5);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Scrollbar Personalizada para el Área de Conversación
+   ========================================================================== */
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #F1F5F9;
+  border-radius: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* ==========================================================================
+   Animaciones Utilitarias de Resplandor y Pulso
+   ========================================================================== */
+
+@keyframes bv-pulse-gentle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.08);
+  }
+}
+
+.bv-animate-pulse {
+  animation: bv-pulse-gentle 1.8s infinite ease-in-out;
+}
+
+@keyframes bv-radar-ripple {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+.bv-animate-ripple {
+  animation: bv-radar-ripple 2s infinite cubic-bezier(0, 0.2, 0.8, 1);
+}
