@@ -325,7 +325,7 @@ function pairSpeechTurns(
             : 'Callado';
 
         turns.push(
-          Object.freeze({
+          Object.freeze<SpeechTurn>({
             id: `turn-${senderId}-${startTime}-${endTime}-${turns.length}`,
             sender_id: senderId,
             receiver_id,
@@ -366,7 +366,7 @@ function pairSpeechTurns(
           : 'Hablando';
 
       turns.push(
-        Object.freeze({
+        Object.freeze<SpeechTurn>({
           id: `turn-${senderId}-${startTime}-${endTime}-${turns.length}`,
           sender_id: senderId,
           receiver_id,
@@ -479,7 +479,7 @@ function extractVisualMembers(
 
     membersMap.set(
       memberId,
-      Object.freeze({
+      Object.freeze<VisualMember>({
         id: memberId,
         memberId,
         name: rawMember.name || memberId,
@@ -506,7 +506,7 @@ function extractVisualMembers(
 
       membersMap.set(
         event.sender_id,
-        Object.freeze({
+        Object.freeze<VisualMember>({
           id: event.sender_id,
           memberId: event.sender_id,
           name: event.sender_id,
@@ -581,7 +581,7 @@ export function adaptTraceToVisualModel(rawTrace: RawSimulationTrace): VisualSim
   const members = extractVisualMembers(rawTrace, metadata, events);
   const totalDuration = computeTotalDuration(metadata, turns, events);
 
-  return Object.freeze({
+  return Object.freeze<VisualSimulationModel>({
     contextType: metadata.context_type,
     totalDuration,
     duration: totalDuration,
