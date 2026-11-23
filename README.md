@@ -72,7 +72,7 @@ El proyecto está preconfigurado para desplegarse directamente en **Cloudflare P
    - **Framework preset**: `Vite`
    - **Build command**: `npm run build`
    - **Build output directory**: `dist`
-4. Cloudflare usará automáticamente `.node-version` (`20`), `public/_redirects` (fallback SPA) y `public/_headers` (cabeceras de seguridad y caché inmutable para `/assets/*`).
+4. Cloudflare usará automáticamente `.node-version` (`20`), fallback SPA nativo y `public/_headers` (cabeceras de seguridad y caché inmutable para `/assets/*`).
 
 ### Opción 2: Cloudflare Workers Static Assets (`wrangler.jsonc`)
 Con el archivo `wrangler.jsonc` incluido en la raíz:
